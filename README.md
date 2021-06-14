@@ -14,6 +14,11 @@ Author : Wolfram Hwang, Geon-Uk Park
 - pod install을 친다.
 - .xcworkspace 를 실행시켜서 하면 된다.
 
+# 타게팅
+
+- Only iPhone
+- Border Version 10.0 
+
 # 사용한 것
 
 - iOS
