@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -57,6 +57,7 @@
 		6B22586E2674F134003602D7 /* InstagramCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramCloneUITests.swift; sourceTree = "<group>"; };
 		6B2258702674F134003602D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B22588026751580003602D7 /* OleoScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OleoScript-Regular.ttf"; sourceTree = "<group>"; };
+		727284602677976F00B57AD1 /* keyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyChain.swift; sourceTree = "<group>"; };
 		9FD75EE7693416BD4F2406A9 /* Pods-InstagramCloneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramCloneTests.debug.xcconfig"; path = "Target Support Files/Pods-InstagramCloneTests/Pods-InstagramCloneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A24C21795347737B6E973782 /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
 		BDAF05A661FF34D5FF7A61FD /* Pods-InstagramClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.debug.xcconfig"; path = "Target Support Files/Pods-InstagramClone/Pods-InstagramClone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				6B22588026751580003602D7 /* OleoScript-Regular.ttf */,
+				727284602677976F00B57AD1 /* keyChain.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -202,7 +204,6 @@
 				9FD75EE7693416BD4F2406A9 /* Pods-InstagramCloneTests.debug.xcconfig */,
 				C125E72AB86E10833BCE1EEF /* Pods-InstagramCloneTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
