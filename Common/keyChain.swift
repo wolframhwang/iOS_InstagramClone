@@ -8,9 +8,8 @@
 
 import Foundation
 import Security
- 
+import Alamofire
 
- 
 class keyChain {
     func create(_ service: String, account: String, value: String) {
         // 1. query작성
