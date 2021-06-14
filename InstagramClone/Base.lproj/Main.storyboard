@@ -23,30 +23,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xom-yR-Ei2">
-                                <rect key="frame" x="0.0" y="244" width="414" height="48.5"/>
+                                <rect key="frame" x="0.0" y="244" width="414" height="41"/>
                                 <fontDescription key="fontDescription" name="OleoScript-Regular" family="Oleo Script" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dgr-ax-6mY">
-                                <rect key="frame" x="10" y="322.5" width="394" height="34"/>
+                                <rect key="frame" x="10" y="315" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6G3-wX-dJs">
-                                <rect key="frame" x="10" y="366.5" width="394" height="34"/>
+                                <rect key="frame" x="10" y="359" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l46-Qf-PaR">
-                                <rect key="frame" x="257" y="415.5" width="142" height="30"/>
+                                <rect key="frame" x="257" y="408" width="142" height="30"/>
                                 <state key="normal" title="비밀번호를 잊으셨나요?"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbq-jY-Ubc">
-                                <rect key="frame" x="10" y="465.5" width="394" height="30"/>
+                                <rect key="frame" x="10" y="458" width="394" height="30"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="로그인"/>
+                                <connections>
+                                    <action selector="LogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aLq-WN-TRp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXf-mc-76I">
                                 <rect key="frame" x="181" y="832" width="52" height="30"/>
@@ -74,6 +77,10 @@
                             <constraint firstItem="Xom-yR-Ei2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="wfP-fj-Kos"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="dgr-ax-6mY" id="eEc-sy-qkT"/>
+                        <outlet property="password" destination="6G3-wX-dJs" id="dhe-nW-I5f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
