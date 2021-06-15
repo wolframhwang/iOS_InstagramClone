@@ -17,6 +17,9 @@
 		6B2258592674F134003602D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B2258572674F134003602D7 /* LaunchScreen.storyboard */; };
 		6B2258642674F134003602D7 /* InstagramCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2258632674F134003602D7 /* InstagramCloneTests.swift */; };
 		6B22586F2674F134003602D7 /* InstagramCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B22586E2674F134003602D7 /* InstagramCloneUITests.swift */; };
+		721623222678B995008D160B /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721623212678B995008D160B /* CommonViewModel.swift */; };
+		721623242678BC6D008D160B /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721623232678BC6D008D160B /* RefreshToken.swift */; };
+		721623262678C156008D160B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721623252678C156008D160B /* FeedViewController.swift */; };
 		7272846126779E5D00B57AD1 /* keyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727284602677976F00B57AD1 /* keyChain.swift */; };
 		7272846226779E5E00B57AD1 /* keyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727284602677976F00B57AD1 /* keyChain.swift */; };
 		7272846326779E5F00B57AD1 /* keyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727284602677976F00B57AD1 /* keyChain.swift */; };
@@ -62,6 +65,9 @@
 		6B22586E2674F134003602D7 /* InstagramCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramCloneUITests.swift; sourceTree = "<group>"; };
 		6B2258702674F134003602D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B22588026751580003602D7 /* OleoScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OleoScript-Regular.ttf"; sourceTree = "<group>"; };
+		721623212678B995008D160B /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommonViewModel.swift; path = Model/User/CommonViewModel.swift; sourceTree = SOURCE_ROOT; };
+		721623232678BC6D008D160B /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
+		721623252678C156008D160B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		727284602677976F00B57AD1 /* keyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyChain.swift; sourceTree = "<group>"; };
 		7272846426779F0700B57AD1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		727284672677AE9D00B57AD1 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 		6B22587D2675155B003602D7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				721623212678B995008D160B /* CommonViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -179,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				6B22584D2674F134003602D7 /* ViewController.swift */,
+				721623252678C156008D160B /* FeedViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				727284672677AE9D00B57AD1 /* UserInfo.swift */,
+				721623232678BC6D008D160B /* RefreshToken.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -464,11 +473,14 @@
 			files = (
 				6B22584E2674F134003602D7 /* ViewController.swift in Sources */,
 				6B22584A2674F134003602D7 /* AppDelegate.swift in Sources */,
+				721623262678C156008D160B /* FeedViewController.swift in Sources */,
 				7272846126779E5D00B57AD1 /* keyChain.swift in Sources */,
 				6B2258542674F134003602D7 /* InstagramClone.xcdatamodeld in Sources */,
 				7272846526779F0700B57AD1 /* API.swift in Sources */,
+				721623222678B995008D160B /* CommonViewModel.swift in Sources */,
 				727284682677AE9D00B57AD1 /* UserInfo.swift in Sources */,
 				6B22584C2674F134003602D7 /* SceneDelegate.swift in Sources */,
+				721623242678BC6D008D160B /* RefreshToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

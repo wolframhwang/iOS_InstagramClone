@@ -22,12 +22,12 @@ class ViewController: UIViewController {
             "email" : self.email.text,
             "password" : self.password.text
         ]
-        print(parameters)
         let request = AF.request("\(URL)", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header)
         request.validate(statusCode: 200..<500)
             .responseDecodable(of: SimpleResponse<String>.self) {response in
                 switch response.result {
                 case .success:
+                    self.vc()
                     print(response.response?.statusCode)
                 case .failure(let err):
                     return
@@ -57,9 +57,36 @@ extension ViewController {
         let expire = Int(LogData[2]) ?? 0
         let now = Int(Date().timeIntervalSince1970 * 1000) ?? 0
         if now > expire { // expire
-            
+            reissue(String(LogData[2]), String(LogData[5]))
         }
         return true
+    }
+    func vc () {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "tabBarController")
+        vc?.modalPresentationStyle = .fullScreen
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
+    func reissue(_ token: String, _ refresh: String){
+        let URL = "https://codevpros.com/auth/reissue"
+        let API = API()
+        let data : Refresh = Refresh(token: token, refresh: refresh)
+        let header: HTTPHeaders = [ "Content-Type": "application/json" ]
+        let parameters = [
+            "token" : data.token,
+            "refreshToken" : data.refresh
+        ]
+        let request = AF.request("\(URL)", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header)
+        request.validate(statusCode: 200..<500)
+            .responseDecodable(of: SimpleResponse<String>.self) {response in
+                switch response.result {
+                case .success:
+                    print(response.response?.statusCode)
+                    self.vc()
+                case .failure(let err):
+                    return
+                }
+            }
     }
 }
 
