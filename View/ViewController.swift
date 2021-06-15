@@ -23,7 +23,7 @@ class ViewController: UIViewController {
             "password" : self.password.text
         ]
         let request = AF.request("\(URL)", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header)
-        request.validate(statusCode: 200..<500)
+        request.validate(statusCode: 200..<300)
             .responseDecodable(of: SimpleResponse<String>.self) {response in
                 switch response.result {
                 case .success:
@@ -45,10 +45,10 @@ class ViewController: UIViewController {
 
 extension ViewController {
     // 지금 이전 로그인 정보가 저장이 되어 있는가?
-    func keyCheck() -> Bool {
+    func keyCheck() {
         let key = keyChain()
         guard let readResult = key.read("codev", account: "loginData") else {
-            return false
+            return
         }
         // Loga Data 정보에 담기는것을 생각해보면
         // ID + 비밀 번호 + Token + expire + grantType + refreshToken!
@@ -59,7 +59,6 @@ extension ViewController {
         if now > expire { // expire
             reissue(String(LogData[2]), String(LogData[5]))
         }
-        return true
     }
     func vc () {
         let vc = storyboard?.instantiateViewController(withIdentifier: "tabBarController")
