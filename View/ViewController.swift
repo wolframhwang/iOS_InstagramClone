@@ -24,9 +24,27 @@ class ViewController: UIViewController {
         ]
         let request = AF.request("\(URL)", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header)
         request.validate(statusCode: 200..<300)
-            .responseDecodable(of: SimpleResponse<String>.self) {response in
+            .responseDecodable(of: SimpleResponse<String>.self) {response in                
                 switch response.result {
                 case .success:
+                    var dict : [String : Any]?
+                    dict = try! JSONSerialization.jsonObject(with: response.data!, options: []) as! [String : Any]
+                    guard let token = dict?["accessToken"] else{return}
+                    guard let refreshToken = dict?["refreshToken"] else { return}
+                    guard let accessTokenExpiresIn = dict?["accessTokenExpiresIn"] else { return}
+                    guard let grantType = dict?["grantType"] else { return }
+                    var chain: String = self.email.text! + " " + self.password.text! + " "
+                    
+                    chain += token as! String
+                    chain += " "
+                    chain += String(accessTokenExpiresIn as! Int)
+                    chain += " "
+                    chain += grantType as! String
+                    chain += " "
+                    chain += refreshToken as! String
+                    print(chain)
+                    let key = keyChain()
+                    key.create("codev", account: "loginData", value: chain)
                     self.vc()
                     print(response.response?.statusCode)
                 case .failure(let err):
@@ -36,10 +54,11 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let key = keyChain()
         keyCheck()
         // Do any additional setup after loading the view.
     }
-
+    
 
 }
 
@@ -56,8 +75,13 @@ extension ViewController {
         let LogData = readResult.split(separator: " ")
         let expire = Int(LogData[2]) ?? 0
         let now = Int(Date().timeIntervalSince1970 * 1000) ?? 0
+        print(LogData
+        )
         if now > expire { // expire
             reissue(String(LogData[2]), String(LogData[5]))
+        }else {
+            self.vc()
+            
         }
     }
     func vc () {
@@ -72,14 +96,34 @@ extension ViewController {
         let data : Refresh = Refresh(token: token, refresh: refresh)
         let header: HTTPHeaders = [ "Content-Type": "application/json" ]
         let parameters = [
-            "token" : data.token,
+            "accessToken" : data.token,
             "refreshToken" : data.refresh
         ]
+        print(parameters)
         let request = AF.request("\(URL)", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header)
         request.validate(statusCode: 200..<500)
             .responseDecodable(of: SimpleResponse<String>.self) {response in
+                var dict : [String : Any]?
+                dict = try! JSONSerialization.jsonObject(with: response.data!, options: []) as! [String : Any]
+                
+                
                 switch response.result {
                 case .success:
+                    guard let token = dict?["accessToken"] else{return}
+                    guard let refreshToken = dict?["refreshToken"] else { return}
+                    guard let accessTokenExpiresIn = dict?["accessTokenExpiresIn"] else { return}
+                    guard let grantType = dict?["grantType"] else { return }
+                    var chain: String = self.email.text! + " " + self.password.text! + " "
+                    
+                    chain += token as! String
+                    chain += " "
+                    chain += String(accessTokenExpiresIn as! Int)
+                    chain += " "
+                    chain += grantType as! String
+                    chain += " "
+                    chain += refreshToken as! String
+                    let key = keyChain()
+                    key.create("codev", account: "loginData", value: chain)
                     print(response.response?.statusCode)
                     self.vc()
                 case .failure(let err):
