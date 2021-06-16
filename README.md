@@ -7,12 +7,13 @@ Author : Wolfram Hwang, Geon-Uk Park
 
 
 
-# It Need
+# 이 프로젝트를 실행하려면?!
 
 - 터미널을 켠다.
 - 이 레포가 있는 폴더로 간다.
 - pod install을 친다.
 - .xcworkspace 를 실행시켜서 하면 된다.
+- 개꿀!
 
 # 타게팅
 
