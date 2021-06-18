@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     
     @IBAction func LogIn(_ sender: Any) {
         let URL = "https://codevpros.com/auth/signin"
-        let API = API()
         let data : UserInfo = UserInfo(email: email.text ?? "", password: password.text ?? "")
         let header: HTTPHeaders = [ "Content-Type": "application/json" ]
         let parameters = [
