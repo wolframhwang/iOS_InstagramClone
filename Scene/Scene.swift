@@ -10,6 +10,7 @@ import UIKit
 enum Scene {
     case main(MainViewModel)
     case singup(SignUpViewModel)
+    case feed(FeedViewModel)
 }
 
 extension Scene {
@@ -30,15 +31,23 @@ extension Scene {
             guard var vc = storyboard.instantiateViewController(withIdentifier: "SingUpVC") as? UINavigationController else {
                 fatalError()
             }
-            
-            
-            guard var composeVC = vc.viewControllers.first as? SignUpViewController else {
+            guard var realVC = vc.viewControllers.first as? SignUpViewController else {
                 fatalError()
             }
             
-            composeVC.bind(viewModel: viewModel)
+            realVC.bind(viewModel: viewModel)
             
             return vc
+        case .feed(let viewModel):
+            guard var vc = storyboard.instantiateViewController(withIdentifier: "FeedVC") as? UITabBarController else{
+                fatalError()
+            }
+            guard var realVC = vc.viewControllers?.first as? FeedViewController else{
+                fatalError()
+            }
+            realVC.bind(viewModel: viewModel as! FeedViewController.ViewModelType)
+            return vc
         }
+        
     }
 }

@@ -17,6 +17,42 @@ extension UIViewController {
 
 
 class SceneCoordinator: SceneCoordinatorType {
+    func moveToScene(to scene: Scene, using style: TransitionStyle, animated: Bool) {
+        let subject = PublishSubject<Void>()
+        
+        let target = scene.instantiate()
+        
+        switch style {
+        case .root:
+           currentVC = target.sceneViewController
+           window.rootViewController = target
+           subject.onCompleted()
+        case .push:
+           print(currentVC)
+           guard let nav = currentVC.navigationController else {
+              subject.onError(TransitionError.navigationControllerMissing)
+              break
+           }
+           
+           nav.rx.willShow
+              .subscribe(onNext: { [unowned self] evt in
+                 self.currentVC = evt.viewController.sceneViewController
+              })
+              .disposed(by: bag)
+           
+           nav.pushViewController(target, animated: animated)
+           currentVC = target.sceneViewController
+           
+           subject.onCompleted()
+        case .modal:
+           currentVC.present(target, animated: animated) {
+              subject.onCompleted()
+           }
+           currentVC = target.sceneViewController
+        }
+        
+    }
+    
    private let bag = DisposeBag()
    
    private var window: UIWindow

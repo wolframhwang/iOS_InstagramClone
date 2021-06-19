@@ -16,4 +16,5 @@ protocol SceneCoordinatorType {
     func close(animated: Bool) -> Completable
         
     func forceClose(animated: Bool)
+    func moveToScene(to scene: Scene, using style: TransitionStyle, animated: Bool)
 }

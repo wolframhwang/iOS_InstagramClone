@@ -241,7 +241,7 @@
         <!--tabBarController-->
         <scene sceneID="nJ0-oW-9re">
             <objects>
-                <tabBarController storyboardIdentifier="tabBarController" title="tabBarController" id="LFN-j1-QhC" customClass="TabBarController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="FeedVC" title="tabBarController" id="LFN-j1-QhC" customClass="TabBarController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ebu-ZU-6sD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

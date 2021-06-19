@@ -20,5 +20,11 @@ class MainViewModel: CommonViewModel, HasDisposeBag {
             let signUpScene = Scene.singup(signUpViewModel)            
             return self.sceneCoordinator.transition(to: signUpScene, using: .modal, animated: true).asObservable().map{ _ in}
         }
-    }    
+    }
+    
+    func moveToFeed() {
+        let FeedViewModel = FeedViewModel(title: "Feed", sceneCoordinator: self.sceneCoordinator)//, displayId: nil, email: nil, nickname: nil, password: nil)
+        let FeedScene = Scene.feed(FeedViewModel)
+        sceneCoordinator.transition(to: FeedScene, using: .root, animated: true)
+    }
 }

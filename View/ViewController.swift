@@ -29,6 +29,7 @@ class ViewController: UIViewController, ViewModelBindableType {
                     var dict : [String : Any]?
                     dict = try! JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
                     self.saveLog(dict: dict)
+                    self.viewModel.moveToFeed()
                     break
                 case .failure(let err):
                     print("FUCK")

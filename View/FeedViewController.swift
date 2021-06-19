@@ -7,14 +7,17 @@
 
 import UIKit
 
-class FeedViewController: UIViewController {
-
+class FeedViewController: UIViewController, ViewModelBindableType {
+    var viewModel: FeedViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    func bindViewModel() {
+         
+    }
 
     /*
     // MARK: - Navigation
