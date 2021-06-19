@@ -16,11 +16,18 @@ class ViewController: UIViewController, ViewModelBindableType {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var signup: UIButton!
     
-    @IBAction func LogIn(_ sender: Any) {
-    }
+    @IBOutlet weak var Login: UIButton!
     func bindViewModel() {
-        return
+        viewModel.initialEmail.drive(email.rx.text)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel.initialPassword.drive(password.rx.text)
+            .disposed(by: rx.disposeBag)
+        signup.rx.action = viewModel.goToSignUp()
+        viewModel.fetchToken().bind(to: Login.rx.isSelected)
+        
     }
     
     override func viewDidLoad() {

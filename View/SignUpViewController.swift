@@ -8,7 +8,8 @@
 import UIKit
 import Alamofire
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, ViewModelBindableType {
+    var viewModel : SignUpViewModel!
     @IBOutlet weak var DisplayID: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var nickName: UITextField!
@@ -17,7 +18,9 @@ class SignUpViewController: UIViewController {
     @IBAction func dismissButton(_ sender: Any) {
         up()
     }
-    
+    func bindViewModel() {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

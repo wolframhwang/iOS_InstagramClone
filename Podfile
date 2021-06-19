@@ -7,6 +7,7 @@ target 'InstagramClone' do
   pod 'RxCocoa'
   pod 'NSObject+Rx'
   pod 'RxDataSources'
+pod 'Action'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 

@@ -9,6 +9,7 @@ import UIKit
 
 enum Scene {
     case main(MainViewModel)
+    case singup(SignUpViewModel)
 }
 
 extension Scene {
@@ -24,6 +25,14 @@ extension Scene {
                 vc.bind(viewModel: viewModel)
             }
             
+            return vc
+        case .singup(let viewModel):
+            guard var vc = storyboard.instantiateViewController(withIdentifier: "SingUpVC") as? SignUpViewController else {
+                fatalError()
+            }
+            DispatchQueue.main.async {
+                vc.bind(viewModel: viewModel)
+            }
             return vc
         }
     }

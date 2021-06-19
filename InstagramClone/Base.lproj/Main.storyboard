@@ -48,9 +48,6 @@
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="로그인"/>
-                                <connections>
-                                    <action selector="LogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aLq-WN-TRp"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXf-mc-76I">
                                 <rect key="frame" x="181" y="832" width="52" height="30"/>
@@ -79,8 +76,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Login" destination="Hbq-jY-Ubc" id="L6H-9X-WfY"/>
                         <outlet property="email" destination="dgr-ax-6mY" id="eEc-sy-qkT"/>
                         <outlet property="password" destination="6G3-wX-dJs" id="dhe-nW-I5f"/>
+                        <outlet property="signup" destination="gXf-mc-76I" id="hBB-L2-j0q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -90,7 +89,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="wP3-tL-7wa">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" id="jDv-ak-6an" customClass="SignUpViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SingUpVC" id="jDv-ak-6an" customClass="SignUpViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pxx-XK-khz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
