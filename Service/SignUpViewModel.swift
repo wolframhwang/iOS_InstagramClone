@@ -17,8 +17,8 @@ class SignUpViewModel: CommonViewModel, HasDisposeBag {
     private let email : String?
     private let nickname: String?
     private let password: String?
+    let cancelAction: CocoaAction
     
-    var log : Bool? = nil
     func signup()->CocoaAction {
         return CocoaAction { _ in
             return self.sceneCoordinator.close(animated: true).asObservable().map {_ in}
@@ -28,8 +28,14 @@ class SignUpViewModel: CommonViewModel, HasDisposeBag {
         self.sceneCoordinator.forceClose(animated: true)
     }
     
-    init(title: String, sceneCoordinator: SceneCoordinatorType, displayId: String?, email: String?, nickname: String?, password: String?){//, signupAction: CocoaAction? = nil) {
+    init(title: String, sceneCoordinator: SceneCoordinatorType, displayId: String?, email: String?, nickname: String?, password: String?, cancelAction: CocoaAction? = nil) {
         self.displayId = displayId; self.email = email; self.nickname = nickname; self.password = password
+        self.cancelAction = CocoaAction {
+            if let action = cancelAction {
+                action.execute(())
+            }
+            return sceneCoordinator.close(animated: true).asObservable().map {_ in}
+        }
         super.init(title: title, sceneCoordinator: sceneCoordinator)
     }
     

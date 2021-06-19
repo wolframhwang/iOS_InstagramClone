@@ -27,12 +27,17 @@ extension Scene {
             
             return vc
         case .singup(let viewModel):
-            guard var vc = storyboard.instantiateViewController(withIdentifier: "SingUpVC") as? SignUpViewController else {
+            guard var vc = storyboard.instantiateViewController(withIdentifier: "SingUpVC") as? UINavigationController else {
                 fatalError()
             }
-            DispatchQueue.main.async {
-                vc.bind(viewModel: viewModel)
+            
+            
+            guard var composeVC = vc.viewControllers.first as? SignUpViewController else {
+                fatalError()
             }
+            
+            composeVC.bind(viewModel: viewModel)
+            
             return vc
         }
     }

@@ -19,7 +19,9 @@ class SignUpViewController: UIViewController, ViewModelBindableType {
     @IBOutlet weak var nickname: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var signUp: UIButton!
+    @IBOutlet weak var Cancel: UIBarButtonItem!
     func bindViewModel() {
+        Cancel.rx.action = viewModel.cancelAction
         self.signUp.rx.tap.subscribe() {_ in
             let signup = SignUp(displayId: self.displayId.text ?? "", email: self.email.text ?? "", nickname: self.nickname.text ?? "", password: self.password.text ?? "")
             let api = SignUpApi()
