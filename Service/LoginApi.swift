@@ -12,7 +12,7 @@ import RxCocoa
 import NSObject_Rx
 
 class LoginApi : LoginApiType{
-
+ 
     private let login = "https://codevpros.com/auth/signin"
     
     func logCheck() {
@@ -24,7 +24,7 @@ class LoginApi : LoginApiType{
             "email" : userInfo.email,
             "password" : userInfo.password
         ]
-        AF.request("\(self.login)", method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON() { response in
+        AF.request("\(self.login)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON() { response in
             switch response.result {
             case .success:
                 onComplete(.success(response.data!))

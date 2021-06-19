@@ -25,8 +25,24 @@ class ViewController: UIViewController, ViewModelBindableType {
         
         viewModel.initialPassword.drive(password.rx.text)
             .disposed(by: rx.disposeBag)
+        
         signup.rx.action = viewModel.goToSignUp()
-        viewModel.fetchToken().bind(to: Login.rx.isSelected)
+        Login.rx.tap.throttle(.milliseconds(500), scheduler: MainScheduler.instance).subscribe(onNext: {
+            let api = LoginApi()
+            api.fetch(userInfo: UserInfo(email: self.email.text ?? "", password: self.password.text ?? "")) { result in
+                switch result {
+                case .success(let data):
+                    var dict : [String : Any]?
+                    dict = try! JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
+                    self.saveLog(dict: dict)
+                    break
+                case .failure(let err):
+                    print("FUCK")
+                    print(err)
+                    break
+                }
+            }
+        })
         
     }
     
@@ -36,6 +52,25 @@ class ViewController: UIViewController, ViewModelBindableType {
     }
     
 
+}
+extension ViewController {
+    func saveLog(dict : [String : Any]?) {
+        guard let token = dict?["accessToken"] else{return}
+        guard let refreshToken = dict?["refreshToken"] else { return}
+        guard let accessTokenExpiresIn = dict?["accessTokenExpiresIn"] else { return}
+        guard let grantType = dict?["grantType"] else { return }
+        var chain: String = self.email.text! + " " + self.password.text! + " "
+        
+        chain += token as! String
+        chain += " "
+        chain += String(accessTokenExpiresIn as! Int)
+        chain += " "
+        chain += grantType as! String
+        chain += " "
+        chain += refreshToken as! String
+        let key = keyChain()
+        key.create("codev", account: "loginData", value: chain)
+    }
 }
 /*
 extension ViewController {

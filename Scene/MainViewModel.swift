@@ -40,23 +40,5 @@ class MainViewModel: CommonViewModel, HasDisposeBag {
             
         }
     }
-        
     
-    func fetchToken() -> Observable<Bool> {
-        return Observable.create { emitter in//데이터!
-            let api = LoginApi()
-            api.fetch(userInfo: UserInfo(email: self.email ?? "", password: self.password ?? "")) { result in
-                switch result {
-                case .success(let data):
-                    emitter.onNext(true)
-                    emitter.onCompleted()
-                    break
-                case .failure(let err):
-                    emitter.onError(err)
-                    break
-                }
-            }
-            return Disposables.create()
-        }
-    }
 }
