@@ -27,6 +27,7 @@
 		6BC27BCD267DD03E004D8F7F /* LoginApiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC27BCC267DD03E004D8F7F /* LoginApiType.swift */; };
 		6BC27BCF267DD140004D8F7F /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC27BCE267DD140004D8F7F /* EndPoint.swift */; };
 		6BC27BD1267DD4AE004D8F7F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC27BD0267DD4AE004D8F7F /* SignUpViewModel.swift */; };
+		6BC27BD2267E1C79004D8F7F /* OleoScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B22588026751580003602D7 /* OleoScript-Regular.ttf */; };
 		721623222678B995008D160B /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721623212678B995008D160B /* CommonViewModel.swift */; };
 		721623242678BC6D008D160B /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721623232678BC6D008D160B /* RefreshToken.swift */; };
 		721623262678C156008D160B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721623252678C156008D160B /* FeedViewController.swift */; };
@@ -391,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B2258592674F134003602D7 /* LaunchScreen.storyboard in Resources */,
+				6BC27BD2267E1C79004D8F7F /* OleoScript-Regular.ttf in Resources */,
 				6B2258562674F134003602D7 /* Assets.xcassets in Resources */,
 				6B2258512674F134003602D7 /* Main.storyboard in Resources */,
 			);
