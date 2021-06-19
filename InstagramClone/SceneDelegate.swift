@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let sceneCoordinator = SceneCoordinator(window: window!)
         
-        let viewModel = MainViewModel(title: "", sceneCoordinator:sceneCoordinator, email: "", password: "")
+        let viewModel = MainViewModel(title: "", sceneCoordinator: sceneCoordinator)
         
         let scene = Scene.main(viewModel)
         sceneCoordinator.transition(to: scene, using: .root, animated: false)

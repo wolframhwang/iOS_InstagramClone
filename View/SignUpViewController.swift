@@ -14,11 +14,9 @@ class SignUpViewController: UIViewController, ViewModelBindableType {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet weak var password: UITextField!
-    private var isCheck = false
-    @IBAction func dismissButton(_ sender: Any) {
-        up()
-    }
+    @IBOutlet weak var signUp: UIButton!
     func bindViewModel() {
+        signUp.rx.action = viewModel.signupAction
         
     }
     override func viewDidLoad() {
@@ -41,7 +39,7 @@ struct signup : Codable{
     }
 }
 
-extension SignUpViewController {
+/*extension SignUpViewController {
     func up() {
         let URL = "https://codevpros.com/auth/signup"
         let header: HTTPHeaders = [ "Content-Type": "application/json" ]
@@ -64,3 +62,4 @@ extension SignUpViewController {
             }
     }
 }
+*/

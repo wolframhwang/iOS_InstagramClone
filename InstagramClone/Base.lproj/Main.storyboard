@@ -114,9 +114,6 @@
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="회원가입"/>
-                                <connections>
-                                    <action selector="dismissButton:" destination="jDv-ak-6an" eventType="touchUpInside" id="qN2-Mz-2lq"/>
-                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="닉네임" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TWJ-d5-B4F">
                                 <rect key="frame" x="10" y="352" width="394" height="34"/>
@@ -152,6 +149,7 @@
                         <outlet property="email" destination="0kJ-0H-wA0" id="dxB-Sp-Of0"/>
                         <outlet property="nickName" destination="TWJ-d5-B4F" id="nUI-EB-Ow5"/>
                         <outlet property="password" destination="moT-lK-cK2" id="4IQ-RD-LAn"/>
+                        <outlet property="signUp" destination="UoR-4L-52r" id="VZb-6k-KW3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCr-Jr-w1G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

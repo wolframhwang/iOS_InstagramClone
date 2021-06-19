@@ -20,12 +20,6 @@ class ViewController: UIViewController, ViewModelBindableType {
     
     @IBOutlet weak var Login: UIButton!
     func bindViewModel() {
-        viewModel.initialEmail.drive(email.rx.text)
-            .disposed(by: rx.disposeBag)
-        
-        viewModel.initialPassword.drive(password.rx.text)
-            .disposed(by: rx.disposeBag)
-        
         signup.rx.action = viewModel.goToSignUp()
         Login.rx.tap.throttle(.milliseconds(500), scheduler: MainScheduler.instance).subscribe(onNext: {
             let api = LoginApi()
@@ -42,7 +36,7 @@ class ViewController: UIViewController, ViewModelBindableType {
                     break
                 }
             }
-        })
+        }).disposed(by: rx.disposeBag)
         
     }
     
