@@ -87,4 +87,12 @@ class SceneCoordinator: SceneCoordinatorType {
          return Disposables.create()
       }
    }
+    
+    func forceClose(animated: Bool) {
+        if let presentingVC = self.currentVC.presentingViewController {
+            self.currentVC.dismiss(animated: true, completion: {
+                self.currentVC = presentingVC.sceneViewController
+            })
+        }
+    }
 }

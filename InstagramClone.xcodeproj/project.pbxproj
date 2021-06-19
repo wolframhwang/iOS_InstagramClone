@@ -28,6 +28,9 @@
 		6BC27BCF267DD140004D8F7F /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC27BCE267DD140004D8F7F /* EndPoint.swift */; };
 		6BC27BD1267DD4AE004D8F7F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC27BD0267DD4AE004D8F7F /* SignUpViewModel.swift */; };
 		6BC27BD2267E1C79004D8F7F /* OleoScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B22588026751580003602D7 /* OleoScript-Regular.ttf */; };
+		6BC27BD4267E1D6C004D8F7F /* SignUpType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC27BD3267E1D6C004D8F7F /* SignUpType.swift */; };
+		6BC27BD6267E1D74004D8F7F /* SignUpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC27BD5267E1D74004D8F7F /* SignUpApi.swift */; };
+		6BC27BD8267E1D91004D8F7F /* signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC27BD7267E1D91004D8F7F /* signup.swift */; };
 		721623222678B995008D160B /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721623212678B995008D160B /* CommonViewModel.swift */; };
 		721623242678BC6D008D160B /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721623232678BC6D008D160B /* RefreshToken.swift */; };
 		721623262678C156008D160B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721623252678C156008D160B /* FeedViewController.swift */; };
@@ -87,6 +90,9 @@
 		6BC27BCC267DD03E004D8F7F /* LoginApiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApiType.swift; sourceTree = "<group>"; };
 		6BC27BCE267DD140004D8F7F /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		6BC27BD0267DD4AE004D8F7F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewModel.swift; path = Service/SignUpViewModel.swift; sourceTree = SOURCE_ROOT; };
+		6BC27BD3267E1D6C004D8F7F /* SignUpType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpType.swift; sourceTree = "<group>"; };
+		6BC27BD5267E1D74004D8F7F /* SignUpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpApi.swift; sourceTree = "<group>"; };
+		6BC27BD7267E1D91004D8F7F /* signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signup.swift; sourceTree = "<group>"; };
 		721623212678B995008D160B /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommonViewModel.swift; path = Model/User/CommonViewModel.swift; sourceTree = SOURCE_ROOT; };
 		721623232678BC6D008D160B /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
 		721623252678C156008D160B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +252,8 @@
 			children = (
 				6BC27BCA267DD014004D8F7F /* LoginApi.swift */,
 				6BC27BCC267DD03E004D8F7F /* LoginApiType.swift */,
+				6BC27BD5267E1D74004D8F7F /* SignUpApi.swift */,
+				6BC27BD3267E1D6C004D8F7F /* SignUpType.swift */,
 				6BC27BCE267DD140004D8F7F /* EndPoint.swift */,
 			);
 			path = Service;
@@ -256,6 +264,7 @@
 			children = (
 				727284672677AE9D00B57AD1 /* UserInfo.swift */,
 				721623232678BC6D008D160B /* RefreshToken.swift */,
+				6BC27BD7267E1D91004D8F7F /* signup.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -523,11 +532,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				721623282678C40C008D160B /* SignUpViewController.swift in Sources */,
+				6BC27BD4267E1D6C004D8F7F /* SignUpType.swift in Sources */,
 				6BC27BCD267DD03E004D8F7F /* LoginApiType.swift in Sources */,
 				6BC27BCF267DD140004D8F7F /* EndPoint.swift in Sources */,
 				6B22584E2674F134003602D7 /* ViewController.swift in Sources */,
 				6BC27BC2267DBBCD004D8F7F /* SceneCoordinatorType.swift in Sources */,
 				6BC27BC8267DCA13004D8F7F /* ViewModelBindableType.swift in Sources */,
+				6BC27BD6267E1D74004D8F7F /* SignUpApi.swift in Sources */,
 				6B22584A2674F134003602D7 /* AppDelegate.swift in Sources */,
 				721623262678C156008D160B /* FeedViewController.swift in Sources */,
 				6BC27BBE267DB94C004D8F7F /* Scene.swift in Sources */,
@@ -541,6 +552,7 @@
 				6BC27BC4267DBBEA004D8F7F /* TransitionModel.swift in Sources */,
 				7257428F267A218700011711 /* TabBarController.swift in Sources */,
 				6B22584C2674F134003602D7 /* SceneDelegate.swift in Sources */,
+				6BC27BD8267E1D91004D8F7F /* signup.swift in Sources */,
 				6BC27BCB267DD014004D8F7F /* LoginApi.swift in Sources */,
 				721623242678BC6D008D160B /* RefreshToken.swift in Sources */,
 			);

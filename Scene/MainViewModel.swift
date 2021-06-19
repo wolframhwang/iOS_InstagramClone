@@ -17,10 +17,8 @@ class MainViewModel: CommonViewModel, HasDisposeBag {
     func goToSignUp() -> CocoaAction {
         return CocoaAction { _ in
             let signUpViewModel = SignUpViewModel(title: "SignUp", sceneCoordinator: self.sceneCoordinator, displayId: nil, email: nil, nickname: nil, password: nil)
-            let signUpScene = Scene.singup(signUpViewModel)
-            return self.sceneCoordinator.transition(to: signUpScene, using: .modal, animated: true
-            ).asObservable().map{ _ in}
-            
+            let signUpScene = Scene.singup(signUpViewModel)            
+            return self.sceneCoordinator.transition(to: signUpScene, using: .modal, animated: true).asObservable().map{ _ in}
         }
     }    
 }
