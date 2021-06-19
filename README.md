@@ -27,3 +27,5 @@ Author : Wolfram Hwang, Geon-Uk Park
 - Delegate Pattern
 - MVVM Pattern
 - Alamofire
+
+> 번외로, Rx를 사용하여 MVVM 패턴 적용중인 rx Branch!
