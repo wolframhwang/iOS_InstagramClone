@@ -7,17 +7,39 @@
 
 import UIKit
 import Alamofire
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 
-class SignUpViewController: UIViewController {
-    @IBOutlet weak var DisplayID: UITextField!
+
+class SignUpViewController: UIViewController, ViewModelBindableType {
+    var viewModel : SignUpViewModel!
+    @IBOutlet weak var displayId: UITextField!
     @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var nickName: UITextField!
+    @IBOutlet weak var nickname: UITextField!
     @IBOutlet weak var password: UITextField!
-    private var isCheck = false
-    @IBAction func dismissButton(_ sender: Any) {
-        up()
+    @IBOutlet weak var signUp: UIButton!
+    @IBOutlet weak var Cancel: UIBarButtonItem!
+    func bindViewModel() {
+        Cancel.rx.action = viewModel.cancelAction
+        self.signUp.rx.tap.subscribe() {_ in
+            let signup = SignUp(displayId: self.displayId.text ?? "", email: self.email.text ?? "", nickname: self.nickname.text ?? "", password: self.password.text ?? "")
+            let api = SignUpApi()
+            api.fetch(signup: signup, onComplete: { result in
+                switch result {
+                case .success(let data):
+                    self.viewModel.go()
+                    break
+                case .failure(let err):
+                    print("FUCK")
+                    print(err)
+                    break
+                }
+            })
+            
+        }.disposed(by: rx.disposeBag)
+        //signUp.rx.action = viewModel.signupAction
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,20 +47,7 @@ class SignUpViewController: UIViewController {
     }
 }
 
-struct signup : Codable{
-    var displayId: String
-    var email : String
-    var nickname: String
-    var password: String
-    init(displayId: String, email: String, nickname: String, password: String) {
-        self.displayId = displayId
-        self.email = email
-        self.nickname = nickname
-        self.password = password
-    }
-}
-
-extension SignUpViewController {
+/*extension SignUpViewController {
     func up() {
         let URL = "https://codevpros.com/auth/signup"
         let header: HTTPHeaders = [ "Content-Type": "application/json" ]
@@ -61,3 +70,4 @@ extension SignUpViewController {
             }
     }
 }
+*/
