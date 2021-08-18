@@ -15,19 +15,7 @@ class FeedViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView)
-        {
-            let offsetY = scrollView.contentOffset.y
-            let contentHeight = scrollView.contentSize.height
-            
-            if offsetY > contentHeight - scrollView.frame.height
-            {
-                if !fetchingMore
-                {
-                    beginBatchFetch()
-                }
-            }
-        }
+
     /*
     // MARK: - Navigation
 
